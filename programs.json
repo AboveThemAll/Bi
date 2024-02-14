@@ -1,9 +1,71 @@
-{"ide": {"theia": false, "vs": true, "vscode": false, "arduino": false, "eclipse": false, "intelij": false, "pycharm": false}, 
-"adobe": {"aftereffects": false, "premirepro": false}, "cracking": {"ida": false, "silverbullet": false, "die": false}, 
-"custem": {"goxlr": false, "vryc": false, "vencord": false, "darcula": false, "plugins": false}, 
-"iso": {"parrot": false, "rocky": false, "debian12": false, "kubunut": false, "openmidavault": false, "rescatux": false, "win8.1": false, "win11": false}, 
-"lang": {"lua": false, "ahk": false, "go": false, "java8": false, "java17": false, "nodejslts": false, "python3.12": false}, 
-"launcher": {"epic": false, "steam": false}, "modding": {"ce": false}, "remote": {"filezilla": false, "thorium": false}, 
-"runtimes": {"dotnet481": false, "dotnet801": false, "dotnet6026": false, "dotnet7015": false, "vsAIO": false}, 
-"soicel": {"discord": false}, "system": {"7z": false, "git": false, "github": false, "winrar": false}, 
-"vm": {"vmware": false, "vmbox": false}}
+{"ide": {
+    "theia.exe": false, 
+    "vs.exe": false, 
+    "vscode.exe": false, 
+    "arduino.exe": false, 
+    "eclipse.exe": false, 
+    "intelij.exe": false,
+    "pycharm.exe": false
+}, 
+"softwaretools": {
+    "ida.exe": false, 
+    "sb.7z": false, 
+    "die.exe": false
+}, 
+"custem": {
+    "goxlr.exe": false, 
+    "vryc.7z": false,
+    "vencord.exe": false, 
+    "darcula.rar": false, 
+    "plugins.rar": false
+}, 
+"iso": {
+    "parrot.iso": false, 
+    "rocky.iso": false, 
+    "debian12.iso": false, 
+    "kubunut.iso": false, 
+    "openmidavault.iso": false, 
+    "rescatux.iso": false,
+    "win8.1.iso": false,
+    "win11.iso": false
+}, 
+"lang": {
+    "lua.exe": false,
+    "ahk.exe": false,
+    "go.msi": false,
+    "java8.exe": false,
+    "java17.exe": false,
+    "nodejslts.msi": false,
+    "python3.12.exe": false
+}, 
+"launcher": {
+    "epic.exe": false,
+    "steam.exe": false
+},
+"modding": {
+    "ce.exe": false
+},
+"remote": {
+    "filezilla.exe": false,
+    "thorium.exe": false
+}, 
+"runtimes": {
+    "dotnet481.exe": false,
+    "dotnet801.exe": false,
+    "dotnet6026.exe": false,
+    "dotnet7015.exe": false,
+    "vsaio.exe": false
+}, 
+"soicel": {
+    "discord.exe": false
+},
+"system": {
+    "7z.exe": false,
+    "git.exe": false,
+    "github.exe": false,
+    "winrar.exe": false
+}, 
+"vm": {
+"vmbox.exe": false
+}
+}
