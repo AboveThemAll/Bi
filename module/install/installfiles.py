@@ -1,7 +1,9 @@
 import os
-import filedownloader
 
 sevenzip = "C:\\Program Files\\7-Zip"
+
+def download(catigory:str,application:str):
+    os.system(f"curl http://lirium.email/downloads/{catigory}/{application} --output {application}")
 
 def install(application:str,rootdir:str):
     filedir = f"{rootdir}\\{application}"
@@ -19,7 +21,7 @@ def install(application:str,rootdir:str):
         case _:
             return "case Error"
     if not os.path.exists(filedir):
-        filedownloader.download(catigory,application)
+        download(catigory,application)
     if un7z:
         if os.path.exists(sevenzip):
             os.chdir(sevenzip)
@@ -27,7 +29,7 @@ def install(application:str,rootdir:str):
             os.system(f"7z.exe x {filedir} -o{rootdir} -y")
             os.chdir(rootdir)
         elif not os.path.exists(sevenzip):
-            filedownloader.download("system","7z.exe")
+            download("system","7z.exe")
             os.system(f"7z.exe /S")
         else:
             print("un7u Error")

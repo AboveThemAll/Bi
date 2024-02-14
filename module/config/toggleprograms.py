@@ -12,4 +12,3 @@ def toggleprograms(programs:str):
         json.dump(content, f)
         f.truncate()
         return content[programcategory][programs]
-print("test")
