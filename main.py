@@ -1,6 +1,6 @@
-import filedownloader
-import installfiles
-import tweaker
+import module.filedownloader as filedownloader
+import module.installfiles as installfiles
+import module.tweaker as tweaker
 import configparser
 import os
 import json
