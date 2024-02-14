@@ -1,0 +1,1 @@
+- move cracking stuff to "softwaretools" or "reverse engeniering" etc

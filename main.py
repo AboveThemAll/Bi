@@ -15,6 +15,7 @@ class info:
 
 
 
+
 def main():
     print("SetupTool")
     if os.path.exists("installing.ini"):
