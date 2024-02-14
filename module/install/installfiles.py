@@ -1,28 +1,32 @@
 import os
-import module.filedownloader as filedownloader
+import filedownloader
 sevenzip = "C:\\Program Files\\7-Zip"
 
 def install(application:str,rootdir:str):
-    print(os.getcwd())
     filedir = f"{rootdir}\\{application}"
+    match application:
+        case "7z.exe":
+            catigory = "system"
+            un7z = False
+            newfile = None
+            args = "/S"
+        case "vryc.7z":
+            catigory = "custem"
+            un7z = True
+            newfile = None
+            args = ""
+        case _:
+            return "case Error"
+        
+    filedownloader.download(catigory,application)
     if os.path.exists(filedir):
-        match application:
-            case "7z.exe":
-                un7z = False
-                newfile = None
-                args = "/S"
-            case "vmware.7z":
-                un7z = True
-                newfile = None
-                args = "/S"
-            case _:
-                return "case Error"
         if un7z:
             if os.path.exists(sevenzip):
                 os.chdir(sevenzip)
+                print("test")
                 os.system(f"7z.exe x {filedir} -o{rootdir} -y")
                 os.chdir(rootdir)
-            elif os.path.exists(sevenzip) != True:
+            elif not os.path.exists(sevenzip):
                 filedownloader.download("system","7z.exe")
                 os.system(f"7z.exe /S")
             else:
@@ -51,6 +55,5 @@ def install(application:str,rootdir:str):
                 return "Newfile Error 2"
         else:
             return "args Error"
-
     else:
         return "File Error"
