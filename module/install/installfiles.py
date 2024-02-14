@@ -1,6 +1,6 @@
 import os
 import module.filedownloader as filedownloader
-svenzip = "C:\\Program Files\\7-Zip"
+sevenzip = "C:\\Program Files\\7-Zip"
 
 def install(application:str,rootdir:str):
     print(os.getcwd())
@@ -18,11 +18,11 @@ def install(application:str,rootdir:str):
             case _:
                 return "case Error"
         if un7z:
-            if os.path.exists(svenzip):
-                os.chdir(svenzip)
+            if os.path.exists(sevenzip):
+                os.chdir(sevenzip)
                 os.system(f"7z.exe x {filedir} -o{rootdir} -y")
                 os.chdir(rootdir)
-            elif os.path.exists(svenzip) != True:
+            elif os.path.exists(sevenzip) != True:
                 filedownloader.download("system","7z.exe")
                 os.system(f"7z.exe /S")
             else:
