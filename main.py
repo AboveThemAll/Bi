@@ -1,32 +1,17 @@
 import module.filedownloader as filedownloader
-import module.installfiles as installfiles
-import module.tweaker as tweaker
-import configparser
+import module.install.installfiles as installfiles
+import module.tweak.tweaker as tweaker
+import module.config.installer as installer
 import os
 import json
-
+import platform
+#osis = platfrom.platform()
+#print(osis) # giebt os aus
 class info:
     mainver = "1"
     hotfixver = "0"
     version = mainver + "." + hotfixver
-
-config = configparser.ConfigParser()
-config.read("config.ini")
-
-def writeconfig(section: str, option: str, content: str):
-    if not config.has_section(section):
-        config.add_section(section)
-    config.set(section, option, content)
-    with open("config.ini", "w") as config_file:
-        config.write(config_file)
-
-def readconfig(section: str, option: str):
-    if config.has_section(section) and config.has_option(section, option):
-        content = config[section][option]
-        return content
-    else:
-        return None
-
+    
 def readprograms():
     with open('programs.json',"r") as f:
         content = json.load(f)
@@ -47,14 +32,22 @@ def updateprograms(programs:str):
 
 def main():
     print("SetupTool")
-    match readconfig("State","Step"):
-        case "0":
-            while True:
-                match input("What do u wanna do?\n[1]Install [2]Tweak"):
-                    case "1" :
-                        os.system("clear")
-                    case "2":
-                        os.system("clear")
-                    case _:
-                        os.system("clear")
-                        print("Invalid action")
+    if os.path.exists("instaling.ini"):
+        match installer.readconfig("State","Step"):
+            case "0":
+                while True:
+                    match input("What do u wanna do?\n[1]Install [2]Tweak [3]Config"):
+                        case "1" :
+                            os.system("cls")
+                            
+                        case "2":
+                            os.system("cls")
+                        case "3":
+                            os.system("cls") 
+                        case _ :
+                            os.system("cls")
+                            print("Invalid action")
+    elif not os.path.exists("installing.ini"):
+        installer.writeconfig("State","Step","0")
+    else:
+        print("Error")

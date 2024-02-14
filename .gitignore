@@ -3,8 +3,8 @@ __pycache__/
 *.py[cod]
 *$py.class
 
-# config.ini
-config.ini
+# serial.ini
+serial.ini
 
 # C extensions
 *.so
