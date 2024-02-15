@@ -15,3 +15,5 @@
 # Project-Specific Tasks
 - module ordner modules nennen
 - changelog
+- ~~merge programs.json && category.json~~
+- rename installer.py -> installmanager.py || installfiles.py -> installer.py || ~~program.json -> info.json~~

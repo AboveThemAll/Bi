@@ -2,10 +2,9 @@ import json
 import module.utils.logger as logger
 
 def toggleprograms(programs: str):
-    with open('programs.json', "r+") as f, open('category.json') as c:
+    with open('info.json', "r+") as f:
         content = json.load(f)
-        category = json.load(c)
-        programcategory = str(category[programs]).strip()
+        programcategory = str(content["category"][programs]).strip()
         state = content[programcategory][programs]
         content[programcategory][programs] = not state
         f.seek(0)
