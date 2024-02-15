@@ -1,7 +1,7 @@
 import os
 import subprocess
-import module.utils.logger as logger
-import module.config.installer as installer
+import modules.utils.logger as logger
+import modules.config.installer as installer
 
 
 installer.writeconfig("test", "test", "test")

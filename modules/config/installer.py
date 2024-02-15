@@ -1,5 +1,5 @@
 import configparser
-import module.utils.logger as logger
+import modules.utils.logger as logger
 
 config = configparser.ConfigParser()
 config.read("installing.ini")

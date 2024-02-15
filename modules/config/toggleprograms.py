@@ -1,5 +1,5 @@
 import json
-import module.utils.logger as logger
+import modules.utils.logger as logger
 
 def toggleprograms(programs: str):
     with open('info.json', "r+") as f:

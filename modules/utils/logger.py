@@ -17,6 +17,7 @@ color_map = {
     "ERROR": "red",
     "CRITICAL": "magenta",
     "ALERT": "white",
+    "BYE" : "cyan",
     "BLACK": "black",
     "RED": "red",
     "GREEN": "green",
