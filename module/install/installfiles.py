@@ -58,3 +58,30 @@ def install(application: str, rootdir: str):
 
 def test():
     logger.log("DEBUG", "TEST (installfiles.py)")
+
+
+download.__doc__ = """
+Downloads a file from the specified category and saves it with the given application name.
+
+Args:
+    category (str): The category of the file to download.
+    application (str): The name of the file to download.
+
+Returns:
+    None
+"""
+
+
+install.__doc__ = """
+Installs an application in the specified root directory.
+
+Args:
+    application (str): The name of the application to install.
+    rootdir (str): The root directory where the application will be installed.
+
+Returns:
+    None
+
+Raises:
+    Exception: If there is an error during the installation process.
+"""

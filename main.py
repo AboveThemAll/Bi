@@ -12,19 +12,16 @@ class info:
 
 
 # options in the main menu
-
-def menu_install():
-    installfiles.test()
-
-def menu_tweak():
-    tweaker.test()
-
-def menu_config():
-    print("Config")
+options = {
+    "1": installfiles.test,
+    "2": tweaker.test,
+    "3": print("Config"),
+    "4": print("Update CPU/GPU")
+}
 
 
-def menu_updatedrivers():
-    print("Update CPU/GPU")
+def clear_screen():
+    print("\033[H\033[J", end="")
 
 
 def main():
@@ -33,30 +30,36 @@ def main():
         step = installer.readconfig("State", "Step")
         if step == "0":
 
-            options = {
-                "1": menu_install,
-                "2": menu_tweak,
-                "3": menu_config,
-                "4": menu_updatedrivers
-            }
-            print("\033[H\033[J", end="")
+            clear_screen()
             logger.log("RED", "WELCOME TO BRUTAL INSTALLER CLI")
             while True:
                 action = input(
                     "What do you want to do?\n[1] Install [2] Tweak [3] Config [4] Update CPU/GPU [q] Quit\n")
                 if action == 'q':
-                    print("\033[H\033[J", end="")
-                    logger.log("CYAN","See you next time, thank you for using this tool :)")
+                    clear_screen()
+                    logger.log(
+                        "CYAN", "See you next time, thank you for using this tool :)")
                     exit()
                 elif action in options:
-                    print("\033[H\033[J", end="")
+                    clear_screen()
                     options[action]()
                 else:
                     # Sollte das gleiche wie "cls" machen nur hoffentlich auch auf linux etc
-                    print("\033[H\033[J", end="")
+                    clear_screen()
                     print("Invalid action")
     else:
         installer.writeconfig("State", "Step", "0")
 
 
 main()
+
+
+main.__doc__ = """
+Main function for the Brutal Installer CLI.
+
+Prints the setup tool name and checks the current step in the installation process.
+If the step is 0, it presents a menu with different options to perform installation, tweaking, configuration, or updating drivers.
+
+Returns:
+    None
+"""
