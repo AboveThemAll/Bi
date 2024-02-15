@@ -4,7 +4,7 @@
 - interface to choose which program to toggle
 
 ## Backend
-- errorlogger
+- ~~errorlogger~~
 - make windows11/10 (/linux UwU) tweaks in tweaker.py
 - update drivers
 

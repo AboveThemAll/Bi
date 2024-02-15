@@ -1,4 +1,5 @@
 import configparser
+import module.utils.logger as logger
 
 config = configparser.ConfigParser()
 config.read("installing.ini")
@@ -10,9 +11,9 @@ def writeconfig(section: str, option: str, content: str):
     with open("installing.ini", "w") as config_file:
         config.write(config_file)
 
+
 def readconfig(section: str, option: str):
-    if config.has_section(section) and config.has_option(section, option):
-        content = config[section][option]
-        return content
-    else:
-        return None
+    return config.get(section, option, fallback=None)
+
+def test():
+    logger.log("DEBUG", "TEST (installer.py)")

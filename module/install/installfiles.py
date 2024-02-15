@@ -1,13 +1,18 @@
 import os
 import subprocess
-from Bi.module.config import installer
+import module.utils.logger as logger
+import module.config.installer as installer
 
-installer.writeconfig("test","test")
+
+installer.writeconfig("test", "test", "test")
 
 sevenzip = "C:\\Program Files\\7-Zip"
 
+
 def download(category: str, application: str):
-    subprocess.run(["curl", f"http://lirium.email/downloads/{category}/{application}", "--output", application])
+    subprocess.run(
+        ["curl", f"http://lirium.email/downloads/{category}/{application}", "--output", application])
+
 
 def install(application: str, rootdir: str):
     filedir = os.path.join(rootdir, application)
@@ -15,12 +20,12 @@ def install(application: str, rootdir: str):
         case "7z.exe":
             category = "system"
             un7z = False
-            newfile = None
+            executable = None
             args = "/S"
         case "vryc.7z":
             category = "custom"
             un7z = True
-            newfile = None
+            executable = None
             args = ""
         case _:
             return "case Error"
@@ -30,13 +35,26 @@ def install(application: str, rootdir: str):
         if not os.path.exists(sevenzip):
             download("system", "7z.exe")
             subprocess.run(["7z.exe", "/S"])
-        subprocess.run([os.path.join(sevenzip, "7z.exe"), "x", filedir, "-o" + rootdir, "-y"])
-
+        subprocess.run(
+            [
+                os.path.join(sevenzip, "7z.exe"),
+                "x",
+                filedir,
+                f"-o{rootdir}",
+                "-y",
+            ]
+        )
     try:
-        if newfile != None:
-            subprocess.run([newfile, args])
-        elif newfile == None:
+        if executable != None:
+            subprocess.run([executable, args])
+        else:
             subprocess.run([application, args])
         os.remove(application)
-    except:
-        print("ERROR") # TODO: errorlogger!
+    except Exception:
+        link = "https://github.com/AboveThemAll/Bi/issues"
+        logger.log(
+            "ERROR", "There was an error in \"installfiles\.py\(Line\: 53\)\".\nReport this error to the developers on github, please!\n" + link)
+
+
+def test():
+    logger.log("DEBUG", "TEST (installfiles.py)")
