@@ -5,12 +5,12 @@ def toggleprograms(programs: str):
     with open('info.json', "r+") as f:
         content = json.load(f)
         programcategory = str(content["category"][programs]).strip()
-        state = content[programcategory][programs]
-        content[programcategory][programs] = not state
+        state = content["programs"][programcategory][programs]
+        content["programs"][programcategory][programs] = not state
         f.seek(0)
         json.dump(content, f)
         f.truncate()
-    return content[programcategory][programs]
+    return content["programs"][programcategory][programs]
 
 
 def test():

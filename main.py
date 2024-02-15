@@ -34,7 +34,7 @@ def main():
             logger.log("RED", "WELCOME TO BRUTAL INSTALLER CLI")
             while True:
                 action = input(
-                    "What do you want to do?\n[1] Install [2] Tweak [3] Config [4] Update CPU/GPU [q] Quit\n")
+                    "What do you want to do?\n[1] Install [2] Tweak [3] Config [4] Update CPU/GPU [q] Quit\n:")
                 if action == 'q':
                     clear_screen()
                     logger.log(
