@@ -2,29 +2,38 @@ import os
 import module.install.installfiles as installfiles
 import module.tweak.tweaker as tweaker
 import module.config.installer as installer
-import module.config.toggleprograms as toggleprogram
 
 class info:
     mainver = "1"
     hotfixver = "0"
-    version = mainver + "." + hotfixver
+    version = f"{mainver}.{hotfixver}"
+
+
+def install():
+    return
 
 def main():
     print("SetupTool")
     if os.path.exists("installing.ini"):
         step = installer.readconfig("State", "Step")
         if step == "0":
+            options = {
+                "1": install(),
+                "2": print("Tweak"),
+                "3": print("Config"),
+                "4": print("Update CPU/GPU")
+            }
             while True:
-                action = input("What do you want to do?\n[1] Install [2] Tweak [3] Config\n")
-                if action == "1":
-                    os.system("cls")  # Assuming you're working on a Windows platform
-                elif action == "2":
-                    os.system("cls")
-                elif action == "3":
-                    os.system("cls")
+                action = input("What do you want to do?\n[1] Install [2] Tweak [3] Config [4] Update CPU/GPU [q] Quit\n")
+                if action == 'q':
+                    exit()
+                elif action in options:
+                        options[action]()
                 else:
-                    os.system("cls")
+                    print("\033[H\033[J", end="") # Sollte das gleiche wie "cls" machen nur hoffentlich auch auf linux etc
                     print("Invalid action")
     else:
         installer.writeconfig("State", "Step", "0")
 
+
+main()

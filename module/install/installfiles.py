@@ -1,59 +1,42 @@
 import os
+import subprocess
+from Bi.module.config import installer
+
+installer.writeconfig("test","test")
 
 sevenzip = "C:\\Program Files\\7-Zip"
 
-def download(catigory:str,application:str):
-    os.system(f"curl http://lirium.email/downloads/{catigory}/{application} --output {application}")
+def download(category: str, application: str):
+    subprocess.run(["curl", f"http://lirium.email/downloads/{category}/{application}", "--output", application])
 
-def install(application:str,rootdir:str):
-    filedir = f"{rootdir}\\{application}"
+def install(application: str, rootdir: str):
+    filedir = os.path.join(rootdir, application)
     match application:
         case "7z.exe":
-            catigory = "system"
+            category = "system"
             un7z = False
             newfile = None
             args = "/S"
         case "vryc.7z":
-            catigory = "custem"
+            category = "custom"
             un7z = True
             newfile = None
             args = ""
         case _:
             return "case Error"
     if not os.path.exists(filedir):
-        download(catigory,application)
+        download(category, application)
     if un7z:
-        if os.path.exists(sevenzip):
-            os.chdir(sevenzip)
-            print("test")
-            os.system(f"7z.exe x {filedir} -o{rootdir} -y")
-            os.chdir(rootdir)
-        elif not os.path.exists(sevenzip):
-            download("system","7z.exe")
-            os.system(f"7z.exe /S")
-        else:
-            print("un7u Error")
-    if args != None:
+        if not os.path.exists(sevenzip):
+            download("system", "7z.exe")
+            subprocess.run(["7z.exe", "/S"])
+        subprocess.run([os.path.join(sevenzip, "7z.exe"), "x", filedir, "-o" + rootdir, "-y"])
+
+    try:
         if newfile != None:
-            os.system(f"{newfile} {args}")
-            os.remove(newfile)
-            return "Done"
+            subprocess.run([newfile, args])
         elif newfile == None:
-            os.system(f"{application} {args}")
-            os.remove(application)
-            return "Done"
-        else:
-            return "Newfile Error 1"
-    elif args == None:
-        if newfile != None:
-            os.system(f"{newfile}")
-            os.remove(newfile)
-            return "Done"
-        elif newfile == None:
-            os.system(f"{application}")
-            os.remove(application)
-            return "Done"
-        else:
-            return "Newfile Error 2"
-    else:
-        return "args Error"
+            subprocess.run([application, args])
+        os.remove(application)
+    except:
+        print("ERROR") # TODO: errorlogger!
