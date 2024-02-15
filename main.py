@@ -29,7 +29,6 @@ def main():
     if os.path.exists("installing.ini"):
         step = installer.readconfig("State", "Step")
         if step == "0":
-
             clear_screen()
             logger.log("RED", "WELCOME TO BRUTAL INSTALLER CLI")
             while True:
