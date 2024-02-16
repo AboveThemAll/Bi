@@ -1,10 +1,6 @@
 import os
 import subprocess
 import modules.utils.logger as logger
-import modules.config.installer as installer
-
-
-installer.writeconfig("test", "test", "test")
 
 sevenzip = "C:\\Program Files\\7-Zip"
 

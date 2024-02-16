@@ -1,7 +1,7 @@
 import json
 import modules.utils.logger as logger
 
-def toggleprograms(programs: str):
+def toggleprograms(programs: str,category:str):
     with open('info.json', "r+") as f:
         content = json.load(f)
         programcategory = str(content["category"][programs]).strip()
