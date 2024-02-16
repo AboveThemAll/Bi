@@ -7,8 +7,7 @@ import modules.utils.terminal as terminal
 SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
 sys.path.append(os.path.dirname(SCRIPT_DIR))
 
-
-# Moved outside of the log function
+# Moved outside the log function
 color_map = {
     "SUCCESS": "green",
     "INFO": "white",
@@ -18,7 +17,7 @@ color_map = {
     "ERROR": "red",
     "CRITICAL": "magenta",
     "ALERT": "white",
-    "BYE" : "cyan",
+    "BYE": "cyan",
     "BLACK": "black",
     "RED": "red",
     "GREEN": "green",
@@ -40,19 +39,17 @@ def log(level: str, message: str):
     terminal.clear_screen()
     print(colored(f"[{timestamp}] [{level.upper()}] {message}", color))
     if level.upper() == "SIMPLELOGGER":
-        print(colored("\n    !  Use logger.log the next time for a better visual experience while reading error-logs ^^  !\n", "red"))
-    
+        print(colored(
+            "\n    !  Use logger.log the next time for a better visual experience while reading error-logs ^^  !\n",
+            "red"))
 
 
 def gol(message: str):
     log("SIMPLELOGGER", message)
 
 
-
 def test():
     log("DEBUG", "TEST (logger.py)")
-
-
 
 
 log.__doc__ = """

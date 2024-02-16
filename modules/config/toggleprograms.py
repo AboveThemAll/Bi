@@ -1,7 +1,8 @@
 import json
 import modules.utils.logger as logger
 
-def toggleprograms(programs: str,category:str):
+
+def toggleprograms(programs: str, category: str):
     with open('info.json', "r+") as f:
         content = json.load(f)
         programcategory = str(content["category"][programs]).strip()
@@ -15,7 +16,6 @@ def toggleprograms(programs: str,category:str):
 
 def test():
     logger.log("DEBUG", "TEST (toggleprograms.py)")
-
 
 
 toggleprograms.__doc__ = """

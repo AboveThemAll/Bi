@@ -2,22 +2,23 @@ import configparser
 import modules.utils.logger as logger
 
 
-def writeconfig(section: str, option: str, content: str,file:str):
+def writeconfig(section: str, option: str, content: str, file: str):
     config = configparser.ConfigParser()
     config.read(file)
     if not config.has_section(section):
         config.add_section(section)
     config.set(section, option, content)
-    with open(file, "w") as config_file:
-        config.write(config_file)
+    with open(file, "w") as f:
+        config.write(f)
 
 
-def readconfig(section: str, option: str,file:str):
+def readconfig(section: str, option: str, file: str):
     config = configparser.ConfigParser()
     config.read(file)
     return config.get(section, option, fallback=None)
 
-def replyconfig(file:str):
+
+def replyconfig(file: str):
     config = configparser.ConfigParser()
     config.read(file)
     config_dict = {}

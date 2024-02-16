@@ -14,7 +14,7 @@
             "sb.7z": false,
             "die.exe": false
         },
-        "custem": {
+        "custom": {
             "goxlr.exe": false,
             "vryc.7z": false,
             "vencord.exe": false,
@@ -80,11 +80,11 @@
         "ida.exe": "softwaretools",
         "sb.7z": "softwaretools",
         "die.exe": "softwaretools",
-        "goxlr.exe": "custem",
-        "vryc.7z": "custem",
-        "vencord.exe": "custem",
-        "darcula.rar": "custem",
-        "plugins.rar": "custem",
+        "goxlr.exe": "custom",
+        "vryc.7z": "custom",
+        "vencord.exe": "custom",
+        "darcula.rar": "custom",
+        "plugins.rar": "custom",
         "parrot.iso": "iso",
         "rocky.iso": "iso",
         "debian12.iso": "iso",

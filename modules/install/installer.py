@@ -41,7 +41,7 @@ def install(application: str, rootdir: str):
             ]
         )
     try:
-        if executable != None:
+        if not None == executable:
             subprocess.run([executable, args])
         else:
             subprocess.run([application, args])
@@ -53,7 +53,7 @@ def install(application: str, rootdir: str):
 
 
 def test():
-    logger.log("DEBUG", "TEST (installfiles.py)")
+    logger.log("DEBUG", "TEST (installer.py)")
 
 
 download.__doc__ = """
