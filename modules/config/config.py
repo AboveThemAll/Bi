@@ -1,32 +1,15 @@
-import configparser
 import modules.utils.logger as logger
+import yaml
+
+def readconfig(filepath):
+    with open(filepath, 'r') as file:
+        config_data = yaml.safe_load(file)
+    return config_data
 
 
-def writeconfig(section: str, option: str, content: str, file: str):
-    config = configparser.ConfigParser()
-    config.read(file)
-    if not config.has_section(section):
-        config.add_section(section)
-    config.set(section, option, content)
-    with open(file, "w") as f:
-        config.write(f)
-
-
-def readconfig(section: str, option: str, file: str):
-    config = configparser.ConfigParser()
-    config.read(file)
-    return config.get(section, option, fallback=None)
-
-
-def replyconfig(file: str):
-    config = configparser.ConfigParser()
-    config.read(file)
-    config_dict = {}
-    for section in config.sections():
-        config_dict[section] = {}
-        for option in config.options(section):
-            config_dict[section][option] = config.get(section, option)
-    return config_dict
+def writeconfig(content, filepath):
+    with open(filepath, 'w') as file:
+        yaml.dump(content, file)
 
 
 def test():
