@@ -1,72 +1,72 @@
 {
-    "driver": {
-      "1660ti": false
-    },
-    "ide": {
-      "VisualStudio": false,
-      "VSCode": false,
-      "Theia": false,
-      "PyCharm": false,
-      "IntelliJ": false,
-      "Eclipse": false,
-      "Ardunino": false
-    },
-    "iso": {
-      "Debian12": false,
-      "Kubuntu": false,
-      "Parrot": false,
-      "Rocky": false,
-      "Windows11": false,
-      "windows8.1": false
-    },
-    "lang": {
-      "Ahk": false,
-      "Golang": false,
-      "Java8": false,
-      "Java17": false,
-      "Lua": false,
-      "Python3-12": false,
-      "Nodejs": false
-    },
-    "modding": {
-      "CheatEngine": false
-    },
-    "remote": {
-      "Filezilla": false,
-      "Thorium": false
-    },
-    "runtimes": {
-      "Dotnet4": false,
-      "Dotnet6": false,
-      "Dotnet7": false,
-      "Dotnet8": false,
-      "VSAio": false
-    },
-    "softwaretools": {
-      "DetectitEasy": false,
-      "IDA": false,
-      "Silverbullet": false
-    },
-    "soicel": {
-      "Discord": false
-    },
-    "system": {
-      "7zip": false,
-      "Winrar": false,
-      "Git": false,
-      "Github": false
-    },
-    "vm": {
-      "VmBox": false,
-      "Vmware17": false
-    },
-    "custom": {
-      "GoXlr": false,
-      "Vencord": false,
-      "VRY": false
-    },
-    "Launcher": {
-      "EpicGames": false,
-      "Steam": false
-    }
+  "driver": {
+    "1660ti": true
+  },
+  "ide": {
+    "visualstudio": false,
+    "vscode": false,
+    "theia": false,
+    "pycharm": false,
+    "intellij": false,
+    "eclipse": false,
+    "ardunino": false
+  },
+  "iso": {
+    "debian12": false,
+    "kubuntu": false,
+    "parrot": false,
+    "rocky": false,
+    "windows11": false,
+    "windows8.1": false
+  },
+  "lang": {
+    "ahk": false,
+    "golang": false,
+    "java8": false,
+    "java17": false,
+    "lua": false,
+    "python3-12": false,
+    "nodejs": false
+  },
+  "modding": {
+    "cheatengine": false
+  },
+  "remote": {
+    "filezilla": true,
+    "thorium": false
+  },
+  "runtimes": {
+    "dotnet4": true,
+    "dotnet6": false,
+    "dotnet7": false,
+    "dotnet8": true,
+    "vsaio": false
+  },
+  "softwaretools": {
+    "detectiteasy": false,
+    "ida": false,
+    "silverbullet": false
+  },
+  "soicel": {
+    "discord": false
+  },
+  "system": {
+    "7zip": false,
+    "winrar": false,
+    "git": false,
+    "github": true
+  },
+  "vm": {
+    "vmbox": false,
+    "vmware17": false
+  },
+  "custom": {
+    "goxlr": false,
+    "vencord": false,
+    "vry": false
+  },
+  "launcher": {
+    "epicgames": false,
+    "steam": false
   }
+}
