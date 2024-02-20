@@ -13,7 +13,5 @@
 - API: api-keys, public&paid-private, public:  server lässt nur 3 pcs  gleichzeitig pro key, dadurch nd klauen  der daten  auf server
 
 # Project-Specific Tasks
-- ~~module ordner modules nennen~~
+- module ordner modules nennen
 - changelog
-- ~~merge programs.json && category.json~~
-- rename installer.py -> installmanager.py || installfiles.py -> installer.py || ~~program.json -> info.json~~

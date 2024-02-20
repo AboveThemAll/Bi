@@ -1,4 +1,4 @@
-import modules.utils.logger as logger
+import module.utils.logger as logger
 
 
 def test():
