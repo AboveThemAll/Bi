@@ -1,8 +1,8 @@
 import os
-import module.install.installfiles as installfiles
-import module.tweak.tweaker as tweaker
-import module.config.installer as installer
-import module.utils.logger as logger
+import modules.install.installfiles as installfiles
+import modules.tweak.tweaker as tweaker
+import modules.config.installer as installer
+import modules.utils.logger as logger
 
 
 class info:
@@ -10,13 +10,18 @@ class info:
     hotfixver = "0"
     version = f"{mainver}.{hotfixver}"
 
+def config():
+    print("Config")
+
+def driver():
+    print("update driver")
 
 # options in the main menu
 options = {
     "1": installfiles.test,
     "2": tweaker.test,
-    "3": print("Config"),
-    "4": print("Update CPU/GPU")
+    "3": config,
+    "4": driver
 }
 
 
@@ -29,7 +34,6 @@ def main():
     if os.path.exists("installing.ini"):
         step = installer.readconfig("State", "Step")
         if step == "0":
-
             clear_screen()
             logger.log("RED", "WELCOME TO BRUTAL INSTALLER CLI")
             while True:
